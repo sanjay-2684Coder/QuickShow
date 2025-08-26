@@ -17,11 +17,7 @@ app.use(cors())
 app.use(clerkMiddleware())
 app.get('/', (req,res)=>res.send('server is Live!'))
 
-console.log("Mounting Inngest middleware...");
 app.use("/api/inngest", serve({ client: inngest, functions }));
-console.log("Inngest middleware mounted!");
-app.get("/api/test", (req, res) => {
-  res.json({ message: "Test route is working!" });
-});
+
 
 app.listen(port,()=>console.log(`Server listening at http://localhost:${port}`));
